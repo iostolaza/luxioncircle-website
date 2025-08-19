@@ -281,6 +281,6 @@ button {
         width: 100%;
     }
     form {
-        padding-right: 0; /* Remove in responsive */
+        padding-right: 4rem; /* Remove in responsive */
     }
 }
