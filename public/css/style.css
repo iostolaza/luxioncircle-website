@@ -5,10 +5,14 @@
 
 body {
     margin: 0;
-    font-family: 'Playfair Display SC', serif;
+    font-family: 'Playfair Display', serif;
     background-color: #FFFDF9;
     color: #000;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display SC', serif;
 }
 
 header {
@@ -166,16 +170,42 @@ footer {
 }
 
 /* Contact form */
-main {
+.contact-main {
+    min-height: 110vh; /* Longer vertically */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 2rem;
 }
 
+.contact-info {
+    flex: 1;
+    padding-right: 2rem;
+    text-align: left; /* Align text left */
+}
+
+.contact-info h2 {
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
 form {
-    max-width: 600px;
-    margin: 0 auto;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.name-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.name-field {
+    flex: 1;
 }
 
 label {
@@ -183,6 +213,7 @@ label {
 }
 
 input, textarea {
+    width: 80%; /* Less wide */
     padding: 0.5rem;
     border: 1px solid #D4AF37;
     border-radius: 5px;
@@ -194,6 +225,7 @@ button {
     color: #FFFDF9;
     border: none;
     cursor: pointer;
+    width: 80%; /* Match input width */
 }
 
 /* Responsive */
@@ -214,5 +246,20 @@ button {
     }
     .hero-text p {
         font-size: 1.5rem;
+    }
+    .contact-main {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .contact-info {
+        padding-right: 0;
+        text-align: center;
+    }
+    .name-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    input, textarea, button {
+        width: 100%;
     }
 }

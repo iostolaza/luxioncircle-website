@@ -18,16 +18,30 @@
 </nav>
 <h1>Luxion Circle</h1>
 </header>
-<main>
-<form id="contact-form" action="/api/contact" method="POST">
-<label for="name">Name:</label>
-<input type="text" id="name" name="name" required>
-<label for="email">Email:</label>
-<input type="email" id="email" name="email" required>
-<label for="message">Message:</label>
-<textarea id="message" name="message" required></textarea>
-<button type="submit">Submit</button>
-</form>
+<main class="contact-main">
+    <div class="contact-info">
+        <h2>Luxion Circle</h2>
+        <p>427 Teheran-ro, Gangnam District<br>Seoul, South Korea</p>
+        <p>Email: info@luxioncircle.com</p>
+        <p>Phone: +12344567</p>
+    </div>
+    <form id="contact-form" action="/api/contact" method="POST">
+        <div class="name-row">
+            <div class="name-field">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+            <div class="name-field">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+        </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
 </main>
 <footer>
 <p>&copy; 2025 Luxion Circle. All rights reserved.</p>
