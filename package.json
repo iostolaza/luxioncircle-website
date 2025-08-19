@@ -1,14 +1,19 @@
 {
   "name": "luxioncircle-website",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Luxion Circle website with form, email, and dual backends",
+  "main": "backends/server-mongo.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-mongo": "node backends/server-mongo.js",
+    "start-dynamo": "node backends/server-dynamo.js"
+  },
+  "engines": {
+    "node": "22.x"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.664.0",
     "body-parser": "^1.20.3",
