@@ -1,5 +1,5 @@
 git add .
-git commit -m "contact form adjustments."
+git commit -m "DNS config"
 git push origin main
 
 node backends/server-mongo.js
