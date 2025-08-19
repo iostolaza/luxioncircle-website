@@ -1,13 +1,9 @@
 /* Color scheme: Cream background (#FFFDF9), soft gold accents (#D4AF37), dark text (#000), blue accents (#003366) */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Playfair Display SC', serif;
     background-color: #FFFDF9;
     color: #000;
-}
-
-h1, h2, h3 {
-    font-family: 'Playfair Display SC', serif;
 }
 
 header {
@@ -20,10 +16,6 @@ header {
 }
 
 .home header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     background-color: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* Semi-transparent for contrast */
 }
@@ -33,8 +25,10 @@ header {
     color: white;
 }
 
-.home #hero {
-    padding-top: 80px; /* Adjust based on header height to prevent overlap */
+h1 {
+    margin: 0;
+    color: #003366;
+    padding-right: 1rem; /* Add padding to ensure title shows completely */
 }
 
 nav ul {
@@ -43,14 +37,10 @@ nav ul {
     gap: 1rem;
 }
 
+nav li,
 nav a {
+    font-weight: normal;
     text-decoration: none;
-    color: #003366;
-    font-weight: bold;
-}
-
-h1 {
-    margin: 0;
     color: #003366;
 }
 
@@ -62,6 +52,10 @@ h1 {
     background-size: cover;
     background-position: center;
     background-attachment: scroll; /* Scrollable background */
+}
+
+#hero.full-page {
+    min-height: 105vh; /* 5% longer */
 }
 
 .centered {
