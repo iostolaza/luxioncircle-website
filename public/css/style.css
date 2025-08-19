@@ -61,7 +61,7 @@ nav a {
 }
 
 #hero.full-page {
-    min-height: 105vh; /* 5% longer */
+    min-height: 110vh; 
 }
 
 .hero-text {
@@ -73,7 +73,7 @@ nav a {
 
 .hero-text h2 {
     font-size: 6rem;
-    color: #000; /* Black */
+    color: #e5e6d9; 
     line-height: 0.8;
     margin: 0;
 }
