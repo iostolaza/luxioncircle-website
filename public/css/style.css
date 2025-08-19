@@ -1,9 +1,14 @@
 /* Color scheme: Cream background (#FFFDF9), soft gold accents (#D4AF37), dark text (#000), blue accents (#003366) */
+* {
+    box-sizing: border-box; /* Ensure padding is included in width to prevent overflow */
+}
+
 body {
     margin: 0;
     font-family: 'Playfair Display SC', serif;
     background-color: #FFFDF9;
     color: #000;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 header {
@@ -35,6 +40,7 @@ header {
 h1 {
     margin: 0;
     color: #003366;
+    padding-right: 2rem; /* Extra padding on right for title */
 }
 
 nav ul {
