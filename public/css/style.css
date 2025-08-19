@@ -14,7 +14,7 @@ body {
 header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 1rem 2rem;
     z-index: 10;
 }
@@ -67,7 +67,7 @@ nav a {
 }
 
 #hero.full-page {
-    min-height: 110vh; 
+    min-height: 115vh; 
 }
 
 .hero-text {
@@ -104,8 +104,8 @@ nav a {
 }
 
 #description .centered p {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.8rem; /* Increased for eye-catching */
+    font-weight: normal; /* Easy and fine text */
 }
 
 .button {
