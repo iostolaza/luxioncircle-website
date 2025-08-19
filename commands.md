@@ -1,5 +1,5 @@
 git add .
-git commit -m "Index page adjustment and css"
+git commit -m "new adjustments"
 git push origin main
 
 node backends/server-mongo.js
