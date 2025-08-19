@@ -1,3 +1,5 @@
 git add .
-git commit -m "Second commit, html pages added"
+git commit -m "Background image added"
 git push origin main
+
+node backends/server-mongo.js
