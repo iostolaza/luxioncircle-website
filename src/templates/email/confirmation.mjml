@@ -27,9 +27,23 @@
         align="left"
         font-weight="400"
       />
+      <mj-class name="greeting-text"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="18px"
+        color="#111111"
+        align="left"
+        font-weight="400"
+      />
+      <mj-class name="disclaimer-text"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="10px"
+        line-height="15px"
+        color="#111111"
+        align="center"
+      />
     </mj-attributes>
     <mj-style>
-      .footer-info, .disclaimer {
+      .footer-info {
         font-size: 10px;
         color: #111111;
         text-align: center;
@@ -40,8 +54,32 @@
       .card {
         background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Heavier shadow */
         padding: 40px;
+      }
+      @media only screen and (max-width: 480px) {
+        [mj-class="headline-text"] {
+          font-size: 30px !important;
+          line-height: 36px !important;
+        }
+        [mj-class="body-text"] {
+          font-size: 14px !important;
+          line-height: 22px !important;
+        }
+        [mj-class="signoff"] {
+          font-size: 14px !important;
+          line-height: 22px !important;
+        }
+        [mj-class="greeting-text"] {
+          font-size: 16px !important;
+        }
+        [mj-class="disclaimer-text"] {
+          font-size: 9px !important;
+          line-height: 13px !important;
+        }
+        .card {
+          padding: 20px !important; /* Adjust padding for mobile */
+        }
       }
     </mj-style>
     <mj-style>
@@ -53,48 +91,35 @@
         }
       }
     </mj-style>
+    <mj-breakpoint width="480px" />
   </mj-head>
-  <mj-body background-color="#FFFDF9">
-    <!-- GREETING SECTION -->
-    <mj-section background-color="#FFFDF9" padding="50px 5px 50px 25px">
-      <mj-column width="600px">
-        <mj-text font-size="18px" color="#111111" align="left" font-weight="400" padding="0">
-          Hi {{name}},
-        </mj-text>
-      </mj-column>
-    </mj-section>
-    <!-- CARD SECTION FOR MAIN CONTENT -->
+  <mj-body background-color="#FFFDF9" width="600px">
+    <!-- CARD SECTION CONTAINING ALL MAIN CONTENT -->
     <mj-section background-color="#FFFDF9" padding="50px 10px">
       <mj-column width="600px" css-class="card">
-        <!-- HEADLINE -->
+        <!-- GREETING SECTION -->
+        <mj-text mj-class="greeting-text" padding="0 0 20px 0">
+          Hi {{name}},
+        </mj-text>
+        <!-- HEADLINE SECTION -->
         <mj-text mj-class="headline-text" padding="0 0 20px 0">
           We are excited<br />to<br />connect with you!
         </mj-text>
-        <!-- BODY TEXT -->
-        <mj-text mj-class="body-text" padding="0">
+        <!-- BODY TEXT SECTION -->
+        <mj-text mj-class="body-text" padding="0 0 20px 0">
           Thank you for contacting us.<br/>
           Our team will review your message and get back to you as soon as possible.
         </mj-text>
-      </mj-column>
-    </mj-section>
-    <!-- SIGNOFF SECTION -->
-    <mj-section background-color="#FFFDF9" padding="100px 5px 50px 25px">
-      <mj-column width="600px">
-        <mj-text mj-class="signoff" padding="0">
+        <!-- SIGNOFF SECTION -->
+        <mj-text mj-class="signoff" padding="0 0 20px 0">
           Best wishes,<br/>
           The Luxion Circle Team
         </mj-text>
-      </mj-column>
-    </mj-section>
-    <!-- DISCLAIMER SECTION -->
-    <mj-section background-color="#FFFDF9" padding="50px 10px 10px 10px">
-      <mj-column width="600px">
-        <mj-raw>
-          <p class="disclaimer">
-            We only send emails to individuals who have contacted us via our site:
-            <a href="https://luxioncircle.com" style="color:#111111; text-decoration:underline;">luxioncircle.com</a>
-          </p>
-        </mj-raw>
+        <!-- DISCLAIMER SECTION -->
+        <mj-text mj-class="disclaimer-text" padding="0">
+          We only send emails to individuals who have contacted us via our site:
+          <a href="https://luxioncircle.com" style="color:#111111; text-decoration:underline;">luxioncircle.com</a>
+        </mj-text>
       </mj-column>
     </mj-section>
     <!-- DIVIDER SECTION -->

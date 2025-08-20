@@ -25,7 +25,7 @@ async function sendConfirmation(to, name) {
     console.log('Confirmation email sent to:', to);
   } catch (err) {
     console.warn('Email failed:', err);
-    throw err; // Rethrow for caller handling
+    throw err; 
   }
 }
 module.exports = { sendConfirmation };
