@@ -2,11 +2,8 @@
 
 const hostname = window.location.hostname;
 const API_ROOT = (
-  hostname === 'luxioncircle.com' ||  // Replace with your actual domain if different
-  hostname === 'www.luxioncircle.com'
-)
-  ? 'https://luxion-backend.herokuapp.com'
-  : 'http://localhost:3000';
+  hostname === 'luxioncircle.com' || hostname === 'www.luxioncircle.com'
+) ? 'https://luxion-backend-168d09f7ef44.herokuapp.com' : 'http://localhost:3000';
 
 const MAX_RETRIES = 1;  
 const RETRY_DELAY_MS = 500;  
