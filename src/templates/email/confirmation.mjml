@@ -54,7 +54,7 @@
       .card {
         background-color: #ffffff;
         border-radius: 8px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Heavier shadow */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Heavier shadow */
         padding: 40px;
       }
       @media only screen and (max-width: 480px) {
@@ -78,7 +78,7 @@
           line-height: 13px !important;
         }
         .card {
-          padding: 20px !important; /* Adjust padding for mobile */
+          padding: 20px !important;
         }
       }
     </mj-style>
@@ -94,11 +94,13 @@
     <mj-breakpoint width="480px" />
   </mj-head>
   <mj-body background-color="#FFFDF9" width="600px">
+
+    <!-- padding: T R B L; -->
     <!-- CARD SECTION CONTAINING ALL MAIN CONTENT -->
     <mj-section background-color="#FFFDF9" padding="50px 10px">
       <mj-column width="600px" css-class="card">
         <!-- GREETING SECTION -->
-        <mj-text mj-class="greeting-text" padding="0 0 20px 0">
+        <mj-text mj-class="greeting-text" padding="0 0 100px 0">
           Hi {{name}},
         </mj-text>
         <!-- HEADLINE SECTION -->
@@ -106,12 +108,12 @@
           We are excited<br />to<br />connect with you!
         </mj-text>
         <!-- BODY TEXT SECTION -->
-        <mj-text mj-class="body-text" padding="0 0 20px 0">
+        <mj-text mj-class="body-text" padding="0 0 100px 0">
           Thank you for contacting us.<br/>
           Our team will review your message and get back to you as soon as possible.
         </mj-text>
         <!-- SIGNOFF SECTION -->
-        <mj-text mj-class="signoff" padding="0 0 20px 0">
+        <mj-text mj-class="signoff" padding="0 0 120px 0">
           Best wishes,<br/>
           The Luxion Circle Team
         </mj-text>

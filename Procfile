@@ -1,1 +1,1 @@
-web: node backends/server-mongo.js
+web: node src/server.js
