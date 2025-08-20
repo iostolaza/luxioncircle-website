@@ -1,5 +1,5 @@
 git add .
-git commit -m "Mongo serve.js config"
+git commit -m "Email backend config"
 git push origin main
 
 git add .

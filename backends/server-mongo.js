@@ -5,7 +5,7 @@ const { body, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const path = require('path');
-const renderMjmlTemplate = require('../utils/renderMjmlTemplate');  // Path relative to backends/
+const renderMjmlTemplate = require('../utils/renderMjmlTemplate');
 
 const app = express();
 const port = process.env.PORT || 3000;
