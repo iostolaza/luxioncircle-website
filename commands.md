@@ -32,3 +32,27 @@ rm -rf node_modules package-lock.json
 rm -rf node_modules/.cache
 
 npm install 
+
+mkdir contacts
+mkdir -p parent/child/grandchild
+
+cat << EOF > /contact/contact.js
+const mongoose = require('mongoose');
+
+const contactSchema = new mongoose.Schema({
+  first_name: { type: String, required: true },
+  last_name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: String,
+  message: { type: String, required: true },
+  date: { type: Date, default: Date.now }
+});
+
+// Pre-save hook for any custom logic
+contactSchema.pre('save', function(next) {
+  // e.g., trim fields if needed
+  next();
+});
+
+module.exports = mongoose.model('Contact', contactSchema);
+EOF
