@@ -5,7 +5,7 @@ git add .
 
 git status
 
-git commit -m "backend server.js config"
+git commit -m "Configure email service and .js"
 
 git push origin main
 git push heroku main

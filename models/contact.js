@@ -6,7 +6,7 @@ const contactSchema = new mongoose.Schema({
   phone: String,
   message: { type: String, required: true },
   date: { type: Date, default: Date.now }
-});
+}, { optimisticConcurrency: true }); // Enable here for model-level concurrency
 // Pre-save hook for any custom logic
 contactSchema.pre('save', function(next) {
   // e.g., trim fields if needed
