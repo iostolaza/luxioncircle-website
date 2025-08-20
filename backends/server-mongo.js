@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { body, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
+const path = require('path');
+const renderMjmlTemplate = require('../utils/renderMjmlTemplate');  // Path relative to backends/
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -54,6 +57,33 @@ mongoose.connect(process.env.MONGO_URI)
                 const newContact = new Contact({ first_name, last_name, email, phone, message });
                 await newContact.save();
                 console.log('Data saved to Mongo:', newContact);
+
+                // Email confirmation
+                const transporter = nodemailer.createTransport({
+                    host: 'smtp.zoho.com',
+                    port: 465,
+                    secure: true,
+                    auth: {
+                        user: process.env.SMTP_USER,
+                        pass: process.env.SMTP_PASS,
+                    },
+                });
+                try {
+                    const emailHtml = await renderMjmlTemplate(
+                        path.join(__dirname, '../email/confirmation.mjml'),
+                        { name: `${first_name} ${last_name}` }
+                    );
+                    await transporter.sendMail({
+                        from: `"Luxion Circle" <${process.env.SMTP_USER}>`,
+                        to: email,
+                        subject: "We received your message!",
+                        html: emailHtml,
+                    });
+                    console.log('Confirmation email sent to:', email);
+                } catch (mailErr) {
+                    console.warn('Confirmation email failed:', mailErr);
+                }
+
                 res.status(200).json({ message: 'Success' });
             } catch (err) {
                 console.error('Save error:', err);
