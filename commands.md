@@ -19,7 +19,7 @@ cp -r public/css/* .
 
 cp -r public/images/* .
 
-curl -X POST http://localhost:3000/api/contact -H "Content-Type: application/json" -d '{"first_name":"Test","last_name":"User","email":"test@example.com","phone":"+123","message":"Hello"}'
+curl -X POST http://localhost:3000/api/contact -H "Content-Type: application/json" -d '{"first_name":"Francisco","last_name":"Ostolaza","email":"i.ostolaza87@gmail.com","phone":"+4158669595","message":"Hello"}'
 
 heroku logs --tail --app luxion-backend
 

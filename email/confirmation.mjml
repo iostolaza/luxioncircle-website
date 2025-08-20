@@ -1,10 +1,105 @@
 <mjml>
-  <mj-body background-color="#FFFDF9">
-    <mj-section>
-      <mj-column>
-        <mj-text font-size="20px" color="#003366">Thank You, {{name}}!</mj-text>
-        <mj-text>We have received your information and will get back to you soon.</mj-text>
+<mj-head>
+<mj-attributes>
+<mj-all font-family="Garamond, &#x27;PT Serif&#x27;, serif" color="#111111">
+<mj-class name="headline-text" font-family="Garamond, &#x27;PT Serif&#x27;, serif" font-size="40px" line-height="48px" color="#003366" align="center" font-weight="700" text-transform="uppercase">
+<mj-class name="body-text" font-family="Garamond, &#x27;PT Serif&#x27;, serif" font-size="16px" line-height="26px" color="#111111" align="center" font-weight="400">
+<mj-class name="signoff" font-family="Garamond, &#x27;PT Serif&#x27;, serif" font-size="16px" line-height="26px" color="#111111" align="left" font-weight="400">
+</mj-class></mj-class></mj-class></mj-all></mj-attributes>
+<mj-style>
+.footer-info, .disclaimer {
+font-size: 10px;
+color: #111111;
+text-align: center;
+line-height: 15px;
+margin: 0 auto;
+max-width: 600px;
+}
+.card {
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+padding: 40px;
+}
+</mj-style>
+<mj-style>
+@media all and (min-width: 601px) {
+.mj-column-per-100, .mj-column-per-90 {
+max-width:600px !important;
+margin-left: auto !important;
+margin-right: auto !important;
+}
+}
+</mj-style>
+</mj-head>
+<mj-body background-color="#FFFDF9"></mj-body></mjml>
+    
+    <mj-section background-color="#FFFDF9" padding="50px 5px 50px 25px" align="left">
+      <mj-column width="600px">
+        <mj-text font-size="18px" color="#111111" align="left" font-weight="400" padding="0">
+          Hi {{name}},
+        </mj-text>
       </mj-column>
     </mj-section>
-  </mj-body>
-</mjml>
+    
+    <mj-section background-color="#FFFDF9" padding="50px 10px" align="center">
+      <mj-column width="600px">
+        <mj-wrapper css-class="card">
+          <!-- HEADLINE -->
+          <mj-text mj-class="headline-text" padding="0 0 20px 0">
+            We are excited<br>to<br>connect with you!
+          </mj-text>
+          <!-- BODY TEXT -->
+          <mj-text mj-class="body-text" padding="0">
+            Thank you for contacting us.<br>
+            Our team will review your message and get back to you as soon as possible.
+          </mj-text>
+        </mj-wrapper>
+      </mj-column>
+    </mj-section>
+    
+    <mj-section background-color="#FFFDF9" padding="100px 5px 50px 25px" align="center">
+      <mj-column width="600px">
+        <mj-text mj-class="signoff" padding="0">
+          Best wishes,<br>
+          The Luxion Circle Team
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    
+    <mj-section background-color="#FFFDF9" padding="50px 10px 10px 10px" align="center">
+      <mj-column width="600px">
+        <mj-raw>
+          <p class="disclaimer">
+            We only send emails to individuals who have contacted us via our site:
+            <a href="https://luxioncircle.com" style="color:#111111; text-decoration:underline;">luxioncircle.com</a>
+          </p>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+    
+    <mj-section background-color="#FFFDF9" padding="10px 5px 10px 5px" align="center">
+      <mj-column width="600px">
+        <mj-divider border-color="#ececec" border-width="1px" padding="0">
+      </mj-divider></mj-column>
+    </mj-section>
+    
+    <mj-section background-color="#FFFDF9" padding="10px 10px 30px 10px" align="center">
+      <mj-column width="600px">
+        <mj-raw>
+          <p class="footer-info">
+            <span style="color:#111111 !important; text-decoration:none;">
+              <strong><span style="font-size:20px; font-weight:700;">Luxion Circle</span></strong><br>
+              427 Teheran-ro, Gangnam District<br>
+              Seoul, South Korea<br>
+              Email: <a href="mailto:info@luxioncircle.com" style="color:#111111;text-decoration:none;">info@luxioncircle.com</a><br>
+              Phone: <a href="tel:+12344567" style="color:#111111;text-decoration:none;">+12344567</a><br>
+              <a href="https://luxioncircle.com/terms/" style="color:#111111; text-decoration:underline;">Privacy Policy</a>  | 
+              <a href="https://luxioncircle.com/email/unsubscribe.html" style="color:#111111; text-decoration:underline;">Unsubscribe</a>
+            </span>
+          </p>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+  
+
