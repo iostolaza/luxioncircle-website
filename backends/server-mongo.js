@@ -1,14 +1,32 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const { body, validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = process.env.PORT || 3000;  // Use Heroku's dynamic port or fallback to 3000 locally
+const port = process.env.PORT || 3000;
 
-app.use(cors());
+// CORS configuration
+const allowedOrigins = [
+    'https://luxioncircle.com',
+    'https://www.luxioncircle.com',
+    'http://localhost:3000'  // For local testing
+];
+
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);  // Handle preflight manually
+    }
+    next();
+});
+
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../')); // Serve from project root
 
@@ -17,7 +35,7 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('MongoDB connected');
 
-        // Form submission route (CRUD create only)
+        // Form submission route
         app.post('/api/contact', [
             body('first_name').trim().notEmpty(),
             body('last_name').trim().notEmpty(),
@@ -35,7 +53,7 @@ mongoose.connect(process.env.MONGO_URI)
             try {
                 const newContact = new Contact({ first_name, last_name, email, phone, message });
                 await newContact.save();
-                console.log('Data saved to Mongo:', newContact); // Log for test
+                console.log('Data saved to Mongo:', newContact);
                 res.status(200).json({ message: 'Success' });
             } catch (err) {
                 console.error('Save error:', err);
@@ -48,7 +66,7 @@ mongoose.connect(process.env.MONGO_URI)
             res.sendFile(__dirname + '/../index.html');
         });
 
-        // Global error handler (adapted from other project)
+        // Global error handler
         app.use((err, req, res, next) => {
             console.error('Uncaught error:', err);
             res.status(500).json({ message: 'Internal Server Error' });
@@ -60,7 +78,7 @@ mongoose.connect(process.env.MONGO_URI)
     })
     .catch(err => {
         console.error('MongoDB connection error:', err);
-        process.exit(1);  // Exit if DB fails to connect
+        process.exit(1);
     });
 
 const contactSchema = new mongoose.Schema({
