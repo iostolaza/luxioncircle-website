@@ -40,7 +40,7 @@ app.use(limiter);
 app.use(express.json()); // Replace body-parser
 
 // Serve static from public/
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '..')));
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
@@ -52,8 +52,8 @@ mongoose.connect(process.env.MONGO_URI, {
   app.use('/api/contact', require('./routes/contact'));
 
   // Static fallback
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../index.html'));
 });
 
   // Global error handler
