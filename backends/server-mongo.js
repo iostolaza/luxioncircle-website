@@ -1,3 +1,6 @@
+
+// backends/server-mongo.js
+
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -6,29 +9,32 @@ const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const renderMjmlTemplate = require('../utils/renderMjmlTemplate');
+const cors = require('cors');  // Add this import
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// CORS configuration
+// CORS configuration using cors package
 const allowedOrigins = [
     'https://luxioncircle.com',
     'https://www.luxioncircle.com',
     'http://localhost:3000'  // For local testing
 ];
 
-app.use((req, res, next) => {
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);  // Handle preflight manually
-    }
-    next();
-});
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type']
+}));
+
+// Explicit preflight handling for the route (optional but ensures)
+app.options('/api/contact', cors());
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../')); // Serve from project root
