@@ -18,19 +18,21 @@ const allowedOrigins = [
     'http://localhost:3000'
 ];
 
-app.use(cors({
-    origin: function (origin, callback) {
-        console.log('CORS origin check:', origin); 
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type'],
-    optionsSuccessStatus: 200 
-}));
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    console.log('Incoming request:', req.method, req.url, 'Origin:', origin);  // Debug all requests
+    console.log('Origin match check:', allowedOrigins.includes(origin));  // Debug matching
+    if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    if (req.method === 'OPTIONS') {
+        console.log('Handling OPTIONS preflight');  // Debug preflight
+        return res.sendStatus(200);
+    }
+    next();
+});
 
 // Global pre-flight handler
 app.options('*', cors());

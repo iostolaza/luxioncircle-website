@@ -6,9 +6,10 @@ git add .
 git status
 
 git commit -m "backend server.js config"
-git push heroku main
 
 git push origin main
+git push heroku main
+
 
 node backends/server-mongo.js
 
