@@ -1,4 +1,8 @@
-node_modules
+# Ignore dependencies
+node_modules/
+
+# Ignore environment variables
 .env
 
-commands.md
+# Ignore specific file inside docs
+docs/commands.md

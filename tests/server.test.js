@@ -1,5 +1,6 @@
-const request = require('supertest');
-const app = require('../server'); // Assume server exports app
+const request = require('supertest'); // v7.0.0
+const app = require('../src/server'); // Updated path
+
 describe('Contact API', () => {
   it('should save contact and send email', async () => {
     const res = await request(app)

@@ -5,7 +5,7 @@ async function renderMjmlTemplate(templatePath, variables) {
   for (const [key, value] of Object.entries(variables)) {
     mjmlContent = mjmlContent.replace(new RegExp(`\\{\\{\${key}\\}\\}`, 'g'), value);
   }
-  const options = { minify: process.env.NODE_ENV === 'production' }; // Best practice: minify in prod
+  const options = { minify: process.env.NODE_ENV === 'production' };
   const { html, errors } = mjml2html(mjmlContent, options);
   if (errors.length) {
     console.error('MJML compile errors:', errors);

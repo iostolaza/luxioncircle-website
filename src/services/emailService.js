@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer'); // v7.0.5
 const path = require('path');
-const renderMjmlTemplate = require('../utils/renderMjmlTemplate'); // Unchanged
+const renderMjmlTemplate = require('../utils/renderMjmlTemplate');
 const transporter = nodemailer.createTransport({
   host: 'smtp.zoho.com',
   port: 465,
@@ -13,14 +13,14 @@ const transporter = nodemailer.createTransport({
 async function sendConfirmation(to, name) {
   try {
     const emailHtml = await renderMjmlTemplate(
-      path.join(__dirname, '../email/confirmation.mjml'),
+      path.join(__dirname, '../templates/email/confirmation.mjml'),
       { name }
     );
     await transporter.sendMail({
       from: `"Luxion Circle" <${process.env.SMTP_USER}>`,
       to,
       subject: "We received your message!",
-      html: emailHtml, // Minify in production: pass { minify: true } to mjml2html if needed
+      html: emailHtml,
     });
     console.log('Confirmation email sent to:', to);
   } catch (err) {
