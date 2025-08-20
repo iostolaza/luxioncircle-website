@@ -1,10 +1,13 @@
-git add .
-git commit -m "Email backend config"
-git push origin main
+
+git status 
 
 git add .
-git commit -m "Fix CORS for frontend origin"
+
+git status
+
+git commit -m "backend server.js config"
 git push heroku main
+
 git push origin main
 
 node backends/server-mongo.js
@@ -22,3 +25,9 @@ heroku logs --tail --app luxion-backend
 Set SMTP Env Vars on Heroku:
 heroku config:set SMTP_USER=noreply@myprojectrunway.com --app luxion-backend
 heroku config:set SMTP_PASS=yy69wqHSPe3c --app luxion-backend
+
+rm -rf node_modules package-lock.json
+
+rm -rf node_modules/.cache
+
+npm install 

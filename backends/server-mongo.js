@@ -1,6 +1,3 @@
-
-// backends/server-mongo.js
-
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -9,20 +6,21 @@ const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const renderMjmlTemplate = require('../utils/renderMjmlTemplate');
-const cors = require('cors');  // Add this import
+const cors = require('cors'); 
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// CORS configuration using cors package
+// CORS configuration with debugging
 const allowedOrigins = [
     'https://luxioncircle.com',
     'https://www.luxioncircle.com',
-    'http://localhost:3000'  // For local testing
+    'http://localhost:3000'
 ];
 
 app.use(cors({
     origin: function (origin, callback) {
+        console.log('CORS origin check:', origin); 
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -30,21 +28,22 @@ app.use(cors({
         }
     },
     methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type'],
+    optionsSuccessStatus: 200 
 }));
 
-// Explicit preflight handling for the route (optional but ensures)
-app.options('/api/contact', cors());
+// Global pre-flight handler
+app.options('*', cors());
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/../')); // Serve from project root
+app.use(express.static(__dirname + '/../'));
 
-// MongoDB setup
+// MongoDB setup (unchanged)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('MongoDB connected');
 
-        // Form submission route
+        // Form submission route (unchanged, assuming email is integrated)
         app.post('/api/contact', [
             body('first_name').trim().notEmpty(),
             body('last_name').trim().notEmpty(),
