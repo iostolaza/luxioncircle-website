@@ -40,7 +40,7 @@ app.use(limiter);
 app.use(express.json()); // Replace body-parser
 
 // Serve static from public/
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '..'), { maxAge: 0 }));
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
