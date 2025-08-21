@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Luxion Circle</title>
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Edit Start: Added CDN link for intl-tel-input CSS to enable country code dropdown styling for the phone input. This is required for the multi-country code entry feature. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.4.1/build/css/intlTelInput.css">
+  <!-- Edit End: intl-tel-input CSS addition. -->
 </head>
 <body>
   <header>
@@ -24,7 +27,7 @@
         <h2>Luxion Circle</h2>
         <p>427 Teheran-ro, Gangnam District<br>Seoul, South Korea</p>
         <p>Email: info@luxioncircle.com</p>
-        <p>Phone: +82 10-8065-1569</p>
+        <p>Phone: +82 10-8065-1469</p>
       </div>
     </div>
     <form id="contact-form" action="/api/contact" method="POST">
@@ -50,6 +53,9 @@
   <footer>
     <p>&copy; 2025 Luxion Circle. All rights reserved.</p>
   </footer>
+  <!-- Edit Start: Added CDN script for intl-tel-input JS before the custom contact-form.js. This loads the library for multi-country code entry with dropdown, flags, and validation. -->
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.4.1/build/js/intlTelInput.min.js"></script>
+  <!-- Edit End: intl-tel-input JS addition. -->
   <script src="/js/contact-form.js"></script>
 </body>
 </html>

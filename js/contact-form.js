@@ -31,6 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorDiv = document.createElement('div'); // For better error display
   errorDiv.className = 'error';
   form.appendChild(errorDiv);
+
+  const phoneInput = document.querySelector("#phone");
+  const iti = window.intlTelInput(phoneInput, {
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@25.4.1/build/js/utils.js",
+  });
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     errorDiv.textContent = ''; // Clear errors
@@ -45,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       first_name: form.first_name.value.trim(),
       last_name: form.last_name.value.trim(),
       email: form.email.value.trim(),
-      phone: form.phone.value.trim(),
+      phone: iti.getNumber() || form.phone.value.trim(),
       message: form.message.value.trim(),
     };
     try {
