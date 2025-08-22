@@ -453,11 +453,6 @@ button {
         padding: 0 1rem; /* Proper padding */
     }
 
-    .card {
-        width: 90%; /* Full width on mobile */
-        height: auto; /* Dynamic height */
-    }
-
     .centered {
         max-width: 90%;
         padding: 0 5%; /* Adjusted padding */
@@ -486,13 +481,21 @@ button {
         padding: 1rem 0; /* Proper padding */
     }
 
-    .ceo-contact, .contact-form {
-        align-items: center; /* Align elements */
-    }
+    /* .ceo-contact, .contact-form {
+        align-items: center; 
+    } */
 
     /* Existing styles... */
     .full-page {
         min-height: 50vh;
+    }
+
+    #get-started {
+        min-height: 90vh; /* Increased vertical height for mobile */
+    }
+
+    #about-us {
+        min-height: 90vh; /* Increased vertical height for mobile on about page */
     }
 
     #contact-group {
@@ -513,18 +516,42 @@ button {
         padding-top: 2rem;
     }
 
+    .contact-form label {
+        display: block; 
+        text-align: left;
+        /* margin-bottom: 0.5rem;  */
+    }
+
+    .iti {
+        width: 100%; 
+        display: block; 
+    }
+
+    #phone {
+        width: 100%;
+    }
+
     .name-row {
         flex-direction: column;
         gap: 1rem;
     }
 
+    .form-field,
+    .name-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem; /* Tight gap between label and input for consistency */
+    }
+
     input, textarea, button {
+        /* flex-direction: column; */
         width: 100%;
+        margin: 0 auto;
     }
 
     .card {
-        width: 175px;
-        height: calc(175px * 5 / 3);
+        width: 75vw; /* 75% of viewport width for better horizontal portrait scaling */
+        height: calc(75vw * 5 / 3); /* Maintain 3:5 ratio */
     }
 
     #our-team {

@@ -28,6 +28,8 @@ app.use((req, res, next) => {
 });
 app.options('*', cors());
 
+app.set('trust proxy', 1);
+
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
