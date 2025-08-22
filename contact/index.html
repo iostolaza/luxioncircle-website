@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Luxion Circle</title>
   <link rel="stylesheet" href="/css/style.css">
-  <!-- Edit Start: Added CDN link for intl-tel-input CSS to enable country code dropdown styling for the phone input. This is required for the multi-country code entry feature. -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.4.1/build/css/intlTelInput.css">
-  <!-- Edit End: intl-tel-input CSS addition. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -21,41 +23,45 @@
     </nav>
     <h1>Luxion Circle</h1>
   </header>
-  <main class="contact-main">
-    <div class="contact-info">
-      <div class="contact-info-inner">
-        <h2>Luxion Circle</h2>
-        <p>427 Teheran-ro, Gangnam District<br>Seoul, South Korea</p>
-        <p>Email: info@luxioncircle.com</p>
-        <p>Phone: +82 10-8065-1469</p>
-      </div>
-    </div>
-    <form id="contact-form" action="/api/contact" method="POST">
-      <div class="name-row">
-        <div class="name-field">
-          <label for="first_name">First Name:</label>
-          <input type="text" id="first_name" name="first_name" required>
-        </div>
-        <div class="name-field">
-          <label for="last_name">Last Name:</label>
-          <input type="text" id="last_name" name="last_name" required>
+  <!-- Edit Start: Removed class="contact-main" from main (now just the large container like about's main). Wrapped .contact-info and form in new <section id="contact-group"> for structure similarity to about's #our-team. Renamed form to class="contact-form" for consistency with sub-div naming (like .ceo-contact). This creates the 50/50 split container. -->
+  <main>
+    <section id="contact-group">
+      
+      <div class="contact-info">
+        <div class="contact-info-inner">
+          <h2>Luxion Circle</h2>
+          <p>427 Teheran-ro, Gangnam District<br>Seoul, South Korea</p>
+          <p>Email: info@luxioncircle.com</p>
+          <p>Phone: +82 10-8065-1469</p>
         </div>
       </div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone"> 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+
+      <form id="contact-form" class="contact-form" action="/api/contact" method="POST">
+        <div class="name-row">
+          <div class="name-field">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required>
+          </div>
+          <div class="name-field">
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required>
+          </div>
+        </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone"> 
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  <!-- Edit End: Contact page structure updates to match about page. -->
   </main>
   <footer>
     <p>&copy; 2025 Luxion Circle. All rights reserved.</p>
   </footer>
-  <!-- Edit Start: Added CDN script for intl-tel-input JS before the custom contact-form.js. This loads the library for multi-country code entry with dropdown, flags, and validation. -->
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.4.1/build/js/intlTelInput.min.js"></script>
-  <!-- Edit End: intl-tel-input JS addition. -->
   <script src="/js/contact-form.js"></script>
 </body>
-</html> 
+</html>
