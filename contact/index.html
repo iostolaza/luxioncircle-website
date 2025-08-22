@@ -12,21 +12,27 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+<header>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
     <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/programs">Programs</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
+        <ul class="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/programs">Programs</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
     </nav>
     <h1>Luxion Circle</h1>
-  </header>
-  <!-- Edit Start: Removed class="contact-main" from main (now just the large container like about's main). Wrapped .contact-info and form in new <section id="contact-group"> for structure similarity to about's #our-team. Renamed form to class="contact-form" for consistency with sub-div naming (like .ceo-contact). This creates the 50/50 split container. -->
+</header>
+
   <main>
     <section id="contact-group">
-      
+
       <div class="contact-info">
         <div class="contact-info-inner">
           <h2>Luxion Circle</h2>
