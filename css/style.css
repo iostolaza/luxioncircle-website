@@ -60,6 +60,7 @@ nav a {
     font-weight: normal;
     text-decoration: none;
     color: #003366;
+    font-size: 1.2rem;
 }
 nav a:hover {
     color: #7F6921; /* Darker gold hover color for better contrast and visibility */
@@ -145,6 +146,12 @@ footer {
     text-decoration: none;
     border-radius: 5px;
     border: 1px solid #D4AF37;
+}
+
+.button:hover {
+    background-color: #D4AF37; /* Gold on hover */
+    color: #003366; /* Blue text on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
 #get-started {
@@ -324,6 +331,13 @@ footer {
     border-left: 1px solid #D4AF37; 
 }
 
+.form-field,
+.name-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* Consistent small gap between label and input/textarea */
+}
+
 .name-row {
     display: flex;
     gap: 0.5rem;
@@ -337,29 +351,43 @@ label {
     font-weight: bold;
 }
 
-input {
-    height: 2rem;
-    width: 100%;
+input,
+textarea {
+    height: 2rem; /* For inputs; textarea overrides below */
+    width: 100%; /* Full width for consistency across fields */
     padding: 0.5rem;
     border: 1px solid #D4AF37;
     border-radius: 5px;
 }
 
 textarea {
-    height: 10rem;
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #D4AF37;
-    border-radius: 5px;
+    height: 10rem; /* Override height for textarea */
+}
+
+.iti {
+    width: 100%; /* Full container width for phone input with flag */
+    display: block;
+}
+
+#phone {
+    width: 100%; /* Ensure phone input fills container */
 }
 
 button {
-    padding: 1rem;
+    padding: 1rem 2rem;
     background-color: #003366;
     color: #FFFDF9;
-    border: none;
+    border: 1px solid #D4AF37;
+    border-radius: 5px;
+    text-decoration: none;
     cursor: pointer;
     width: 50%;
+}
+button:hover {
+    background-color: #D4AF37; /* Gold on hover */
+    color: #003366; /* Blue text on hover */
+    border: 1px solid #003366; /* Blue border on hover for contrast */
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; /* Smooth transition */
 }
 
 /* Mobile/Responsive Styles */
@@ -445,7 +473,6 @@ button {
         transform: rotate(-45deg) translate(7px, -6px);
     }
 
-    /* Other Divs Mobile Fixes */
     .cards-container {
         flex-direction: column;
         align-items: center;
@@ -481,11 +508,6 @@ button {
         padding: 1rem 0; /* Proper padding */
     }
 
-    /* .ceo-contact, .contact-form {
-        align-items: center; 
-    } */
-
-    /* Existing styles... */
     .full-page {
         min-height: 50vh;
     }
@@ -505,15 +527,16 @@ button {
     }
 
     .contact-info {
-        padding-right: 0;
-        padding-bottom: 2rem;
+        padding: 6rem 2rem;
+        max-width: fit-content;
     }
 
     .contact-form {
         border-left: none;
         border-top: 1px solid #D4AF37;
-        padding-left: 0;
-        padding-top: 2rem;
+        padding: 4rem 2rem;
+        width: 100%;
+        max-width: 500px;
     }
 
     .contact-form label {
@@ -540,15 +563,22 @@ button {
     .name-field {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem; /* Tight gap between label and input for consistency */
+        gap: 0.25rem; 
     }
 
     input, textarea, button {
-        /* flex-direction: column; */
-        width: 100%;
-        margin: 0 auto;
+        width: 100%; /* 80% width for mobile form boxes */
+        margin: 0 auto; /* Center horizontally */
     }
 
+    .button:active,
+    button:active {
+        background-color: #D4AF37; /* Gold on active/tap */
+        color: #003366; /* Blue text on active */
+        border: 1px solid #003366; /* Blue border on active for contrast */
+        transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease; /* Smooth transition */
+    }
+  
     .card {
         width: 75vw; /* 75% of viewport width for better horizontal portrait scaling */
         height: calc(75vw * 5 / 3); /* Maintain 3:5 ratio */
