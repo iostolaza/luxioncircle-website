@@ -14,7 +14,7 @@ async function sendConfirmation(to, name) {
   try {
     const emailHtml = await renderMjmlTemplate(
       path.join(__dirname, '../templates/email/confirmation.mjml'),
-      { name }
+      { name }, 
     );
     await transporter.sendMail({
       from: `"Luxion Circle" <${process.env.SMTP_USER}>`,
@@ -28,4 +28,28 @@ async function sendConfirmation(to, name) {
     throw err; 
   }
 }
-module.exports = { sendConfirmation };
+
+async function sendNotificationToClient(details) {
+  try {
+    const emailHtml = await renderMjmlTemplate(
+      path.join(__dirname, '../templates/email/client-notification.mjml'),  // Fixed: Added missing path
+      {
+        name: `${details.first_name} ${details.last_name}`.trim() || 'Anonymous',
+        email: details.email,
+        phone: details.phone || 'Not provided',
+        message: details.message,
+      }
+    );
+    const clientEmails = (process.env.CLIENT_EMAILS || 'info@luxioncircle.com').split(',').map(e => e.trim());
+    await transporter.sendMail({
+      from: `"Luxion Circle Notifications" <${process.env.SMTP_USER}>`,
+      to: clientEmails, 
+      subject: 'New Contact Request Received',
+      html: emailHtml,
+    });
+    console.log('Notification email sent to clients:', clientEmails);
+  } catch (err) {
+    console.warn('Client notification email failed:', err);
+  }
+}
+module.exports = { sendConfirmation, sendNotificationToClient };

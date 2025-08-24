@@ -6,3 +6,10 @@ node_modules/
 
 # Ignore specific file inside docs
 docs/commands.md
+
+# Ignore Google service account file
+service-account.json
+
+*.log
+
+/dist/

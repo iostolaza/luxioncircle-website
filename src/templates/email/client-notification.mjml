@@ -1,0 +1,160 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-all font-family="Garamond, 'PT Serif', serif" color="#111111" />
+      <mj-class name="headline-text"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="40px"
+        line-height="48px"
+        color="#003366"
+        align="center"
+        font-weight="700"
+        text-transform="uppercase"
+      />
+      <mj-class name="body-text"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="16px"
+        line-height="26px"
+        color="#111111"
+        align="center"
+        font-weight="400"
+      />
+      <mj-class name="signoff"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="16px"
+        line-height="26px"
+        color="#111111"
+        align="left"
+        font-weight="400"
+      />
+      <mj-class name="greeting-text"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="18px"
+        color="#111111"
+        align="left"
+        font-weight="400"
+      />
+      <mj-class name="disclaimer-text"
+        font-family="Garamond, 'PT Serif', serif"
+        font-size="10px"
+        line-height="15px"
+        color="#111111"
+        align="center"
+      />
+      <mj-class name="detail-label" font-weight="700" font-size="16px" line-height="24px" align="left" padding="0 0 5px 0" />
+      <mj-class name="detail-value" font-size="16px" line-height="24px" align="left" padding="0 0 30px 0" />
+    </mj-attributes>
+    <mj-style>
+      .footer-info {
+        font-size: 10px;
+        color: #111111;
+        text-align: center;
+        line-height: 15px;
+        margin: 0 auto;
+        max-width: 600px;
+      }
+      .card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* Heavier shadow */
+        padding: 40px;
+      }
+      @media only screen and (max-width: 480px) {
+        [mj-class="headline-text"] {
+          font-size: 30px !important;
+          line-height: 36px !important;
+        }
+        [mj-class="body-text"] {
+          font-size: 14px !important;
+          line-height: 22px !important;
+        }
+        [mj-class="signoff"] {
+          font-size: 14px !important;
+          line-height: 22px !important;
+        }
+        [mj-class="greeting-text"] {
+          font-size: 16px !important;
+        }
+        [mj-class="disclaimer-text"] {
+          font-size: 9px !important;
+          line-height: 13px !important;
+        }
+        .card {
+          padding: 20px !important;
+        }
+      }
+    </mj-style>
+    <mj-style>
+      @media all and (min-width: 601px) {
+        .mj-column-per-100, .mj-column-per-90 {
+          max-width:600px !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+    </mj-style>
+    <mj-breakpoint width="480px" />
+  </mj-head>
+  <mj-body background-color="#FFFDF9" width="600px">
+    <!-- CARD SECTION CONTAINING ALL MAIN CONTENT -->
+    <mj-section background-color="#FFFDF9" padding="50px 10px">
+      <mj-column width="600px" css-class="card">
+        <!-- GREETING SECTION -->
+        <mj-text mj-class="greeting-text" padding="0 0 100px 0">
+          New Contact Request Received
+        </mj-text>
+        <!-- HEADLINE SECTION -->
+        <mj-text mj-class="headline-text" padding="0 0 20px 0">
+          A New Inquiry Awaits!
+        </mj-text>
+        <!-- BODY TEXT SECTION -->
+        <mj-text mj-class="body-text" padding="0 0 50px 0">
+          Details from the submission:
+        </mj-text>
+        <!-- Flattened Details (no inner section/column) -->
+        <mj-text mj-class="detail-label">Name:</mj-text>
+        <mj-text mj-class="detail-value">{{name}}</mj-text>
+        <mj-text mj-class="detail-label">Email:</mj-text>
+        <mj-text mj-class="detail-value">{{email}}</mj-text>
+        <mj-text mj-class="detail-label">Phone:</mj-text>
+        <mj-text mj-class="detail-value">{{phone}}</mj-text>
+        <mj-text mj-class="detail-label">Message:</mj-text>
+        <mj-text mj-class="detail-value">{{message}}</mj-text>
+        <!-- SIGNOFF SECTION -->
+        <mj-text mj-class="signoff" padding="0 0 120px 0">
+          Review and respond promptly,<br/>
+          Luxion Circle System
+        </mj-text>
+        <!-- DISCLAIMER SECTION -->
+        <mj-text mj-class="disclaimer-text" padding="0">
+          We only send emails to individuals who have contacted us via our site:
+          <a href="https://luxioncircle.com" style="color:#111111; text-decoration:underline;">luxioncircle.com</a>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- DIVIDER SECTION -->
+    <mj-section background-color="#FFFDF9" padding="10px 5px 10px 5px">
+      <mj-column width="600px">
+        <mj-divider border-color="#ececec" border-width="1px" padding="0" />
+      </mj-column>
+    </mj-section>
+    <!-- FOOTER SECTION -->
+    <mj-section background-color="#FFFDF9" padding="10px 10px 30px 10px">
+      <mj-column width="600px">
+        <mj-raw>
+          <p class="footer-info">
+            <span style="color:#111111 !important; text-decoration:none;">
+              <strong><span style="font-size:20px; font-weight:700;">Luxion Circle</span></strong><br />
+              427 Teheran-ro, Gangnam District<br />
+              Seoul, South Korea<br />
+              Email: <a href="mailto:info@luxioncircle.com" style="color:#111111;text-decoration:none;">info@luxioncircle.com</a><br/>
+              Phone: <a href="tel:+12344567" style="color:#111111;text-decoration:none;">+12344567</a><br/>
+              <a href="https://luxioncircle.com/terms/" style="color:#111111; text-decoration:underline;">Privacy Policy</a> &nbsp;|&nbsp;
+              <a href="https://luxioncircle.com/email/unsubscribe.html" style="color:#111111; text-decoration:underline;">Unsubscribe</a>
+            </span>
+          </p>
+        </mj-raw>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

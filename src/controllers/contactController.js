@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator'); // v7.2.1
 const Contact = require('../models/contact');
 const emailService = require('../services/emailService');
+const { appendToSheet } = require('../utils/googleSheets');
 
 exports.postContact = async (req, res) => {
   const errors = validationResult(req);
@@ -14,6 +15,13 @@ exports.postContact = async (req, res) => {
     console.log('Data saved to Mongo:', newContact);
     try {
       await emailService.sendConfirmation(email, `${first_name} ${last_name}`.trim() || 'Valued Customer');
+
+      // New: Notify client
+      await emailService.sendNotificationToClient(newContact);
+
+      // New: Append to Google Sheet
+      await appendToSheet(newContact);
+      
     } catch (emailErr) {
       console.error('Email failed but DB saved:', emailErr); // Graceful: Log but don't fail response
     }
