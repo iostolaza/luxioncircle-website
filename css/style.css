@@ -882,70 +882,108 @@ button:hover {
         padding-top: 1rem;
     }
 
-    /* Programs Page mobile style */
- 
-    .hero-content h2 {
-        font-size: 2.5rem;
-    }
+  /* Programs Page mobile style */
 
-    .hero-content p {
-        font-size: 1.2rem;
-    }
+/* Hero adjustments: Hide p and button to prevent overflow, reduce h2 size slightly for fit, add padding */
+.hero-content {
+    padding: 0 5%; /* 5% padding from edges */
+    box-sizing: border-box;
+}
+.hero-content h2 {
+    font-size: 2rem; /* Reduced slightly for mobile balance */
+}
+.hero-content p,
+.hero-content .button {
+    display: none; /* Hide to avoid overflow, as per best hybrid */
+}
 
-    .section-title {
-        font-size: 2.5rem;
-    }
+/* General section title */
+.section-title {
+    font-size: 2.5rem;
+}
 
-    .flex-container {
-        flex-direction: column;
-    }
+/* Flex and width adjustments (unchanged from provided) */
+.flex-container {
+    flex-direction: column;
+}
+.half-width {
+    width: 100%;
+}
+.alternating-section.reverse .flex-container {
+    flex-direction: column;
+}
+.why-image,
+.education-image {
+    min-height: 300px;
+    margin-top: 2rem;
+}
 
-    .half-width {
-        width: 100%;
-    }
+/* Lists: Remove bullets (list-style: none) instead of full hide, reduce font, add padding. This "removes the bulleted list" feel while keeping content. */
+ul {
+    list-style: none; /* Remove bullets */
+    padding: 0 5%; /* 5% from edges */
+    margin: 1rem 0;
+}
+.achievements-list li,
+.why-text ul li,
+.education-text ul li {
+    font-size: 1.1rem; /* Keep same-ish size, but ensure fit */
+    margin-bottom: 0.5rem; /* Stacked for mobile readability */
+}
 
-    .alternating-section.reverse .flex-container {
-        flex-direction: column;
-    }
+/* Service cards: Column layout (unchanged), add padding to content */
+.service-card {
+    flex-direction: column;
+    width: 100%;
+}
+.service-image {
+    width: 100%;
+    height: 250px;
+}
+.service-content {
+    width: 100%;
+    padding: 1rem 5%; /* 5% on each side from card edge, plus vertical for breathing room */
+    box-sizing: border-box;
+}
+.service-card:nth-child(even) {
+    flex-direction: column;
+}
 
-    .why-image,
-    .education-image {
-        min-height: 300px;
-        margin-top: 2rem;
-    }
+/* Why and Education sections: Add padding to text blocks */
+.why-text,
+.education-text {
+    padding: 1rem 5%; /* 5% on each side */
+    box-sizing: border-box;
+    width: 100%; /* Full width with padding */
+}
 
-    .achievements-list li {
-        font-size: 1.1rem;
-    }
+/* Track record: Add padding to container for text/ul */
+.track-section .section-container {
+    padding: 0 5%;
+}
 
-    .service-card {
-        flex-direction: column;
-        width: 100%;
-    }
+/* Education images (unchanged) */
+.education-images {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    padding: 0;
+}
 
-    .service-image {
-        width: 100%;
-        height: 250px;
-    }
-
-    .service-content {
-        width: 100%;
-    }
-
-    .service-card:nth-child(even) {
-        flex-direction: column;
-    }
-
-    /* Changed: Mobile styles for education images */
-    .education-images {
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-        padding: 0;
-    }
-
-    .education-text {
-        width: 95%; /* Changed: Reduce width by 5% for mobile */
-    }
+/* Ensure overall text doesn't touch screen edges */
+.section-container,
+.centered {
+    padding: 0 5%; /* Global fallback for sections */
+    box-sizing: border-box;
+}
+/* CTA section mobile adjustments: Hybrid centering with padding */
+.cta-section .centered {
+    padding: 2rem 5%; /* 5% horizontal padding from edges, 2rem vertical for spacing */
+    text-align: center; /* Center text elements horizontally */
+    display: flex; /* Use flex for better vertical alignment if section is tall */
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    box-sizing: border-box;
+}
 
 }
