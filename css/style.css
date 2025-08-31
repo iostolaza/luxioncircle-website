@@ -354,6 +354,10 @@ label {
     font-weight: bold;
 }
 
+.iti__tel-input#phone {
+  padding-left: 50px !important;
+}
+
 input,
 textarea {
     height: 2rem; /* For inputs; textarea overrides below */
