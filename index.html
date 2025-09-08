@@ -1,28 +1,24 @@
+<!-- HTML: Full edited page (best solution) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Luxion Circle</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- Edit Start: Added Google Fonts links for PT Serif (titles) and EB Garamond (text) to match about page fonts. -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-    <!-- PNG fallbacks for specific sizes (e.g., for browser tabs, bookmarks, or PWA icons) -->
-    <link rel="icon" href="/logo.png" type="image/png" sizes="any">  <!-- "any" lets browser scale it -->
-
-    <!-- Edit End: Google Fonts additions. -->
+    <link rel="icon" href="/logo.png" type="image/png" sizes="any">
 </head>
 <body class="home">
 <header>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <label for="nav-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
     </label>
     <nav>
         <ul class="nav-menu">
@@ -34,48 +30,69 @@
     </nav>
     <h1>Luxion Circle</h1>
 </header>
-    <section id="hero" class="full-page" style="background-image: url('/images/background-image.jpg');">
-        <!-- <div class="hero-text">
-            <h2>LUXION<br>CIRCLE</h2>
-            <p>SEOUL</p>
-        </div> -->
-    </section>
-    <section id="description" class="full-page">
-        <div class="centered">
-            <h2>Luxion Circle</h2>
-            <p>Innovative programs designed to empower individuals and communities through education, and collaboration.</p>
+
+<section id="hero" class="full-page" style="background-image: url('/images/background-image.jpg');">
+    <!-- hero left unchanged per brief -->
+</section>
+
+<!-- 1) Description (cream) - first of the three targeted sections -->
+<section id="description" class="full-page section-cream">
+    <div class="centered">
+        <h2>Luxion Circle</h2>
+        <p>Innovative programs designed to empower individuals and communities through education, and collaboration.</p>
+
+        <!-- NEW: catchy empowerment line added (per brief) -->
+        <p class="empower-tagline">Empower your future; take intentional steps that create lasting impact.</p>
+    </div>
+</section>
+
+<!-- 2) NEW: Image-left / Text-right section (aqua) -->
+<section id="expert-service" class="full-page section-aqua">
+    <div class="section-container split-section">
+        <div class="split-image" style="background-image: url('/images/sandcastle.jpg');" aria-hidden="true"></div>
+        <div class="split-content">
+            <h2>Allow us to customize your concierge needs so that you can worry about what matters</h2>
+            <p> </p>
         </div>
-    </section>
-    <section id="get-started" class="full-page">
-        <div class="centered">
-            <h2>Ready to Get Started?</h2>
-            <a href="/contact" class="button">Get in Touch</a>
-        </div>
-    </section>
-    <section id="programs-preview" class="full-page">
-        <div class="cards-container">
-            <a href="/programs#program-one" class="card" style="background-image: url('/images/gray-building.jpg');">
-                <div class="card-content">
-                    <h3>Premier Institutions</h3>
-                    <p>We take full responsibility for the exclusive consultation and admissions process</p>
-                </div>
-            </a>
-            <a href="/programs#program-two" class="card" style="background-image: url('/images/yoga-sunset.jpg');">
-                <div class="card-content">
-                    <h3>Bilingual Expertise</h3>
-                    <p>Our deep understanding of both Korean and English-based educational environments</p>
-                </div>
-            </a>
-            <a href="/programs#program-three" class="card" style="background-image: url('/images/gray-sky.jpg');">
-                <div class="card-content">
-                    <h3>Holistic Development</h3>
-                    <p>We go beyond academics by meticulously curating every element of your child's growth</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2025 Luxion Circle. All rights reserved.</p>
-    </footer>
+    </div>
+</section>
+
+<!-- 3) Programs preview (white) — cards slightly bigger, ratio 3:5 -->
+<section id="programs-preview" class="full-page section-white">
+    <div class="cards-container section-container">
+        <a href="/programs#program-one" class="card" style="background-image: url('/images/gray-building.jpg');">
+            <div class="card-content">
+                <h3>Premier Institutions</h3>
+                <p>We take full responsibility for the exclusive consultation and admissions process</p>
+            </div>
+        </a>
+
+        <a href="/programs#program-two" class="card" style="background-image: url('/images/yoga-sunset.jpg');">
+            <div class="card-content">
+                <h3>Bilingual Expertise</h3>
+                <p>Our deep understanding of both Korean and English-based educational environments</p>
+            </div>
+        </a>
+
+        <a href="/programs#program-three" class="card" style="background-image: url('/images/gray-sky.jpg');">
+            <div class="card-content">
+                <h3>Holistic Development</h3>
+                <p>We go beyond academics by meticulously curating every element of your child's growth</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- 4) CTA — moved to the end (swapped order with programs-preview where appropriate) -->
+<section id="get-started" class="full-page">
+    <div class="centered">
+        <h2>Ready to Get Started?</h2>
+        <a href="/contact" class="button">Get in Touch</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Luxion Circle. All rights reserved.</p>
+</footer>
 </body>
 </html>

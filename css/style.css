@@ -4,12 +4,22 @@
     box-sizing: border-box; /* Ensure padding is included in width to prevent overflow */
 }
 
+:root{
+  --cream: #FFFDF9;
+  --aqua: #5cc5e2;   
+  --white: #FFFFFF;
+  --blue: #003366;
+  --gold: #D4AF37;
+  --text: #111;
+  --muted: #666;
+}
+
 body {
     margin: 0;
     font-family: 'EB Garamond', serif;
-    background-color: #FFFDF9;
-    color: #000;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: var(--cream);
+    /* color: #000; */
+    overflow-x: hidden; 
 }
 
 h1, h2, h3 {
@@ -100,6 +110,12 @@ footer {
     background-attachment: scroll; /* Scrollable background */
 }
 
+
+/* Section background helper classes */
+.section-cream { background-color: var(--cream); }
+.section-aqua  { background-color: var(--blue); }
+.section-white { background-color: var(--white); }
+
 #hero.full-page {
     min-height: 115vh; 
 }
@@ -141,6 +157,52 @@ footer {
     font-weight: normal; /* Easy and fine text */
 }
 
+.empower-tagline {
+  margin-top: 1rem;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.15rem;
+  color: var(--blue);
+  font-family: 'PT Serif', serif;
+}
+.split-section {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+}
+/* Image pane */
+.split-image {
+  width: 40%;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* Text pane */
+.split-content {
+  width: 48%;
+  padding: 2rem;
+}
+.split-content h2 {
+  font-family: 'PT Serif', serif;
+  font-size: 2.6rem;
+  margin: 0 0 1rem;
+  color: var(--gold);
+}
+.split-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.split-content .muted-note {
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
 .button {
     display: inline-block;
     padding: 1rem 2rem;
@@ -152,9 +214,9 @@ footer {
 }
 
 .button:hover {
-    background-color: #D4AF37; /* Gold on hover */
-    color: #003366; /* Blue text on hover */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    background-color: #D4AF37; 
+    color: #003366; 
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #get-started {
@@ -172,26 +234,26 @@ footer {
 }
 
 .cards-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 5rem;
+  display:flex;
+  gap: 3.5rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 2rem 0;
 }
-
 .card {
-    position: relative;
-    width: 210px;
-    height: 350px; 
-    border: 1px solid #D4AF37;
-    border-radius: 5px;
-    overflow: hidden;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    text-decoration: none;
-    display: block;
+  position: relative;
+  width: 300px;            
+  height: 500px;          
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  display:block;
+  border: 1px solid rgba(0,0,0,0.06);
+  background-size: cover;
+  background-position: center;
+  transition: transform .28s ease, box-shadow .28s ease;
 }
-
 .card::before {
     content: '';
     position: absolute;
@@ -204,26 +266,27 @@ footer {
 }
 
 .card-content {
-    position: relative;
-    z-index: 2;
-    padding: 1rem;
-    color: white; /* White text for contrast */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:flex-start;
+  height:100%;
+  padding: 1.25rem;
 }
 
-.card h3 {
-    color: white; /* Override for white */
-    margin: 0;
+.card-content h3 {
+  margin:0;
+  font-size:1.3rem;
+}
+.card-content p {
+  margin: .5rem 0 0;
+  font-size: 0.95rem;
 }
 
-.card p {
-    color: white; /* Override for white */
-    margin: 0.5rem 0 0;
-}
+
 
 /* About Page Styles */
 #about-us {
@@ -761,6 +824,7 @@ button:hover {
     .cards-container {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 2rem; /* Better spacing */
         padding: 0 1rem; /* Proper padding */
     }
@@ -770,6 +834,10 @@ button:hover {
         padding: 0 5%; /* Adjusted padding */
         text-align: center; /* Center texts/titles */
     }
+
+      .empower-tagline {
+    font-size: 1rem;
+  }
 
     .hero-text h2 {
         font-size: 3rem; /* Smaller title */
@@ -792,6 +860,32 @@ button:hover {
         text-align: center; /* Center texts */
         padding: 1rem 0; /* Proper padding */
     }
+
+      /* Stack split section for mobile */
+  .split-section {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+    min-height: 90vh;
+  }
+  .split-image, .split-content {
+    width: 100%;
+  }
+  .split-image {
+    min-height: 280px;
+    border-radius: 6px;
+  }
+  .split-content {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .split-content h2 {
+    font-size: 1.6rem;
+  }
+  .split-content p {
+    font-size: 1rem;
+  }
+
 
     .full-page {
         min-height: 50vh;
@@ -867,6 +961,7 @@ button:hover {
     .card {
         width: 75vw; /* 75% of viewport width for better horizontal portrait scaling */
         height: calc(75vw * 5 / 3); /* Maintain 3:5 ratio */
+        border-radius: 8px;
     }
 
     #our-team {
