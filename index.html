@@ -1,4 +1,4 @@
-<!-- HTML: Full edited page (best solution) -->
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Luxion Circle</title>
     <link rel="stylesheet" href="/css/style.css" />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
     <link rel="icon" href="/logo.png" type="image/png" sizes="any">
 </head>
 <body class="home">
@@ -25,39 +23,41 @@
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/programs">Programs</a></li>
+            <li><a href="/education">Education</a></li>
             <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     <h1>Luxion Circle</h1>
 </header>
-
 <section id="hero" class="full-page" style="background-image: url('/images/background-image.jpg');">
     <!-- hero left unchanged per brief -->
 </section>
-
-<!-- 1) Description (cream) - first of the three targeted sections -->
+<!-- 1) Description (cream) -->
 <section id="description" class="full-page section-cream">
     <div class="centered">
         <h2>Luxion Circle</h2>
         <p>Innovative programs designed to empower individuals and communities through education, and collaboration.</p>
-
-        <!-- NEW: catchy empowerment line added (per brief) -->
         <p class="empower-tagline">Empower your future; take intentional steps that create lasting impact.</p>
     </div>
 </section>
-
-<!-- 2) NEW: Image-left / Text-right section (aqua) -->
+<!-- 2) Image-left / Text-right section (aqua) -->
 <section id="expert-service" class="full-page section-aqua">
     <div class="section-container split-section">
         <div class="split-image" style="background-image: url('/images/sandcastle.jpg');" aria-hidden="true"></div>
         <div class="split-content">
-            <h2>Allow us to customize your concierge needs so that you can worry about what matters</h2>
-            <p> </p>
+            <h2>Providing You with Expert Tailored Service That Fits Your Needs</h2>
+            <p>Allow us to customize your concierge needs so that you can worry about what matters.</p>
         </div>
     </div>
 </section>
-
-<!-- 3) Programs preview (white) — cards slightly bigger, ratio 3:5 -->
+<!-- 4) CTA (switched with programs-preview) -->
+<section id="get-started" class="full-page">
+    <div class="centered">
+        <h2>Ready to Get Started?</h2>
+        <a href="/contact" class="button">Get in Touch</a>
+    </div>
+</section>
+<!-- 3) Programs preview (white) -->
 <section id="programs-preview" class="full-page section-white">
     <div class="cards-container section-container">
         <a href="/programs#program-one" class="card" style="background-image: url('/images/gray-building.jpg');">
@@ -66,14 +66,12 @@
                 <p>We take full responsibility for the exclusive consultation and admissions process</p>
             </div>
         </a>
-
         <a href="/programs#program-two" class="card" style="background-image: url('/images/yoga-sunset.jpg');">
             <div class="card-content">
                 <h3>Bilingual Expertise</h3>
                 <p>Our deep understanding of both Korean and English-based educational environments</p>
             </div>
         </a>
-
         <a href="/programs#program-three" class="card" style="background-image: url('/images/gray-sky.jpg');">
             <div class="card-content">
                 <h3>Holistic Development</h3>
@@ -82,15 +80,6 @@
         </a>
     </div>
 </section>
-
-<!-- 4) CTA — moved to the end (swapped order with programs-preview where appropriate) -->
-<section id="get-started" class="full-page">
-    <div class="centered">
-        <h2>Ready to Get Started?</h2>
-        <a href="/contact" class="button">Get in Touch</a>
-    </div>
-</section>
-
 <footer>
     <p>&copy; 2025 Luxion Circle. All rights reserved.</p>
 </footer>
