@@ -750,7 +750,8 @@ button:hover {
 /* New: Carousel styles for exclusive experiences */
 .experiences-section {
     background-color: var(--cream);
-    padding-bottom: 80px;
+    padding: 4rem 2rem 100px 2rem; /* Increased bottom padding from 80px to 100px */
+    min-height: auto; /* Allow section to grow naturally */
 }
 
 .carousel-controls {
@@ -761,6 +762,7 @@ button:hover {
     justify-content: flex-end;
     align-items: center;
     gap: 1rem;
+    margin-top: 2rem; /* Add space above controls */
 }
 
 .navigation-arrows {
@@ -769,45 +771,58 @@ button:hover {
 }
 
 .swiper-slide {
-    width: 280px;
-    min-height: 400px;
-    max-height: 500px;
+    width: 320px;
+    min-height: 480px; /* Minimum height */
+    max-height: none; /* CRITICAL: No max height */
+    height: auto; /* Allow natural height growth */
     display: flex;
-    align-items: flex-start;
+    align-items: stretch; /* Changed from flex-start to stretch */
     justify-content: flex-start;
-    /* padding-bottom: 60px; */
 }
 
 .experience-card {
     background: white;
     border-radius: 10px;
-    padding: 20px;
+    overflow: visible; /* Changed from hidden to visible to prevent cutting */
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    height: 100%;
-    overflow: hidden;
+    width: 100%; /* Fill slide width */
+    min-height: 100%; /* Fill slide height */
     display: flex;
     flex-direction: column;
 }
 
+.experience-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.experience-text {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 280px; /* Minimum text area height to accommodate content */
+}
+
 .experience-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--blue);
-    margin: 0 0 1rem;
+    margin: 0 0 0.8rem;
     font-family: 'PT Serif', serif;
+    line-height: 1.3;
 }
 
 .experience-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--muted);
     line-height: 1.5;
     margin: 0;
     flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
-    line-clamp: 6; /* Standard property for compatibility */
+    overflow-wrap: break-word; /* Ensure long words break properly */
+    word-wrap: break-word; /* Legacy support */
 }
 
 .experiences-section .swiper-button-next,
@@ -836,7 +851,8 @@ button:hover {
 
 .experiences-swiper {
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Changed from hidden to visible */
+    padding-bottom: 40px; /* Extra padding to prevent cutoff at bottom */
 }
 
 /* Mobile/Responsive Styles */
@@ -1187,24 +1203,35 @@ ul {
 }
 
 .swiper-slide {
-    width: 280px;
-    min-height: 350px;
-    max-height: 450px;
+    width: 300px; /* Slightly wider for mobile */
+    min-height: 500px; /* Taller for image + full text */
+    max-height: none; /* Remove constraint */
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    /* padding-bottom: 60px; */
 }
 
+.experience-image {
+    height: 180px; /* Slightly smaller on mobile */
+}
+
+.experience-text {
+    min-height: 320px; /* Increased minimum for mobile to accommodate longer text */
+}
+
+.experience-card {
+    overflow: visible; /* Prevent cutoff on mobile */
+}
 
 .experience-card p {
-    -webkit-line-clamp: unset; /* No line limit on mobile */
-    line-clamp: unset; /* Standard property for compatibility */
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
 }
 
 .experiences-swiper {
     position: relative;
-    overflow: visible; /* Allow arrows to overflow if needed */
+    overflow: visible; /* Allow overflow */
+    padding-bottom: 60px; /* Extra padding for mobile */
 }
 
 .carousel-controls {
